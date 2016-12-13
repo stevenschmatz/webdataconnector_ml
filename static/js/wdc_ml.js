@@ -1,6 +1,6 @@
 //Declare Global variables
 var submit = 0; 
-var trainingFileTxt = "" ;
+var trainingFileTxt = "";
 var trainingFileSize = "";
 var scoringFileTxt = "";
 var scoringFileSize = "";
