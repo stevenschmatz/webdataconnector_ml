@@ -171,8 +171,6 @@ function fileUpload() {
                         spinner();
                         },
             success: function(data) {                
-                     console.log(data[0]);
-                     console.log(data[1]);
                      fieldNamesArray = [];
                      fieldTypesArray = [];
                      if (data[0] == 'error') {
@@ -280,8 +278,6 @@ function init() {
 
                             var tableauConnData2 = tableau.connectionData;
                             var tableauConnDataObj2 = JSON.parse(tableauConnData2);
-                            console.log(tableauConnDataObj2.fnArray);
-                            console.log(tableauConnDataObj2.ftArray);
                             var fieldNames =  tableauConnDataObj2.fnArray; 
                             var fieldTypes =  tableauConnDataObj2.ftArray; 
                     
@@ -312,7 +308,6 @@ function init() {
                   contentType: 'application/json',
                   success:  function (obj) {
                   
-                                console.log(obj[Object.keys(obj)[0]]);
                                 //loop through tableauConnDataObj.fnArray
                                 var dynObj = tableauConnDataObj.fnArray;
                                 $.each(obj, function(index, objs) {
@@ -320,7 +315,6 @@ function init() {
                                                 for (var i = 0; i < dynObj.length; i++) {
                                                 entryDyn[dynObj[i]] = objs[dynObj[i]];
                                                 }
-                                    //console.log(entryDyn);
                                     dataToReturn.push(entryDyn);
                                                     
                                 }); //end of $.each
