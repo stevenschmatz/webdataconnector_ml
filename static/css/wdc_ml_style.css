@@ -1,0 +1,115 @@
+/*@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700); */ 
+
+body {
+    background-color: #ffffff;            /* bakgrundfarg */
+    font-family: 'Montserrat', sans-serif;    /* Typsnitt */
+    font-weight: 400;
+    font-size: 15px;
+    color: #555;
+    /*width: 100%;*/ 
+
+}
+
+.centered {
+    text-align: center;
+}
+
+a {
+    color: #1abc9c;
+
+}
+.btn  {
+    font-size: 15px            /* Button font sizes */
+}
+
+.btnlg  {
+    font-size: 18px            /* Button font size */
+}
+
+.navbar {
+    margin-bottom: 0px;
+    font-size: 16px;
+}
+
+.navbar-inverse {        /*height pa navbar*/
+    padding-bottom: 4px;
+    padding-top: 4px;
+}
+
+.intro {
+    padding-top: 0px;
+    border-style: none;
+    background-color: #8EC8C1; 
+} 
+
+.intro  h2 {
+    color: #FFF;
+    font-size: 30px;
+    line-height: 30px;
+    font-weight: 700;
+}
+
+.intro h4 {
+    color: #FFF;
+    font-size: 22px;
+}
+
+#upload-trainingfile-info, #upload-scorefile-info{
+    font-size: 12px;
+}
+
+.btn-info {
+    background:#8EC8C1;
+    border-color: #8EC8C1;
+}
+
+
+.glyphicon{
+    font-size: 56px;
+    color: white; /*#1abc9c;*/
+}
+
+.scrollup {
+    padding-bottom: 5px;
+}
+
+.navbar-inverse {            /*Color navbar*/
+    background-color: #8EC8C1;    
+    border-color: #8EC8C1;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: white;                /*Textfarg pÃ¥ lankar*/
+}
+
+.navbar-inverse .navbar-nav  > li > a:hover {
+    color: #7b7b7b;                        /*TextfÃ¤rg pÃ¥ lÃ¤nkar vid Hover*/
+}
+
+.navbar-inverse .navbar-toggle {
+    border-color: transparent;
+}
+
+#footer {
+    padding-top: 14px;
+    font-size: 12px;
+}
+
+#license {
+    font-size: 12px;
+}
+
+#footer a
+ {
+    color: #18b495;
+}
+
+a:hover,a:focus {
+    color: #7b7b7b;
+    text-decoration: none;
+}
+
+
+
+
+
