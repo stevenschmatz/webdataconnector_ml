@@ -1,24 +1,36 @@
 <!DOCTYPE html>
 
 <html lang="en">
-     <head>
+        <!--
+        Kom igång så här
+        1. cd C:\Users\Erik\Documents\Erik_Docs\Python Development\vrttest\venvpkgs\Tableau\WebDataConnectors1_1\WDC_FileUpload_prod
+        2. python main.py
+        3. http://localhost:5000/sim (renders simulatorindex.html in main.py) 
+        4. WDCUrl http://localhost:5000/static/wdc_ml_index.html
+         -->
+    <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
         <title>Web Data Connector - Machine Learning</title>
         
         <!-- Stylesheets  -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link href="../static/css/bootstrap.min.css" rel="stylesheet" type="text/css"> 
         <link href="../static/css/wdc_ml_style.css" rel="stylesheet">
         
         <!-- Font Awsome icons -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+        <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">-->
+        <link rel="stylesheet" href="../static/css/font-awesome-4.6.3/css/font-awesome.min.css">
 
         <!-- JavaScript files  -->
-        <script src="https://connectors.tableau.com/libs/tableauwdc-1.1.1.js" type="text/javascript"></script>
-        <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <!--<script src="https://connectors.tableau.com/libs/tableauwdc-1.1.1.js" type="text/javascript"></script> -->
+        <script src='../static/js/tableauwdc-1.1.1.js'></script>
+        <script src='../static/js/jquery-2.1.1.min.js'></script>
+        <script src="../static/js/bootstrap.min.js"></script>
         <script src="../static/js/wdc_ml.js"></script> 
+        <script src="../static/js/jquery.easing.min.js"></script>    
+        <script src="../static/js/jquery.scrollTo.js"></script>
+        <script src="../static/js/scrollTime.js"></script>
     </head>
     
     <body>
@@ -36,8 +48,8 @@
                 <div class="navbar-collapse collapse">
                     <div class="col-xs-12" id="logonav">        
                         <ul class="nav navbar-nav navbar-right" id="navigationbar">
-                            <li><a href="#footer"><i class="fa fa-info-circle fa-1x"></i> Info on algorithms used </a></li>
-                            <li><a href="#furtherinfo"><i class="fa fa-paper-plane fa-1x"></i> Further Info </a></li>
+                            <li><a href="#" onclick="scrollTo('#footer');return false;"><i class="fa fa-info-circle fa-1x"></i> Info on algorithms used </a></li>
+                            <li><a href="#" onclick="scrollTo('#furtherinfo');return false;"><i class="fa fa-paper-plane fa-1x"></i> Further Info </a></li>
                         </ul>
                     </div>
                 </div>   
@@ -225,9 +237,9 @@
                                     You can optimize the regularization parameter C by grid search or choose the default value of C=1.0. 
                                     If you choose the optimization technique Grid Search the
                                     <a href="http://scikit-learn.org/0.17/modules/generated/sklearn.grid_search.GridSearchCV.html" target="_blank">GridSearchCV</a> class is used. 
-                                    The scoring parameter in GridSearchCV set to 'accuracy', the parameter grid to optimize C is a list of [0.0001, 0.001, 0.01, 0.1, 1, 10, 100, 1000, 10000]  
-                                    and the cross-validation parameter (cv) is set to 5 (5-fold cross-validation)
-                                    As a tip (if you wish to modify the source code) for faster performance in optimizing the hyper-parameter C you can use the <a href="http://scikit-learn.org/0.17/modules/generated/sklearn.grid_search.RandomizedSearchCV.html" target="_blank">RandomizedSearchCV</a> 
+                                    The scoring parameter in GridSearchCV is set to 'accuracy', the parameter grid to optimize C is a list of [0.0001, 0.001, 0.01, 0.1, 1, 10, 100, 1000, 10000]  
+                                    and the cross-validation parameter (cv) is set to 5 (5-fold cross-validation).
+                                    As a tip (if you wish to modify the source code) for faster performance in optimizing the hyper-parameter C you can use the <a href="http://scikit-learn.org/0.17/modules/generated/sklearn.grid_search.RandomizedSearchCV.html" target="_blank">RandomizedSearchCV</a> <br>
                                     The Logistic Regression model is evaluated using 5-fold cross-validation. 
                                     The output includes the model validation metrics <b>accuracy, recall, precision, f1 </b> and <b>auc</b> (area under curve). All validation metrics is the mean value from 5-fold cross-validation. <br>
                                     Multiclass classification is not yet supported in this 0.1 version
@@ -235,7 +247,7 @@
                                 </p>
                             <h5>Random Forest</h5>
                                 <p>
-                                    uses the RandomForestClassifier class from <a href="http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html" target="_blank">sklearn.ensemble</a>   
+                                    Uses the RandomForestClassifier class from <a href="http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html" target="_blank">sklearn.ensemble</a>   
                                     and creates trees at random and then averages the predictions of these trees.  
                                     You can choose the number of trees in the forest and as the splitting criteria you choose between the <i>Gini impurity</i> (default) or <i>Entropy</i> for the information gain.  
                                     Although as mentioned in Sebastian Raschka  excellent <a href="http://sebastianraschka.com/books.html" target="_blank"> book</a> the gini impurity and entropy often produce very similar results <br>
@@ -248,10 +260,10 @@
                                 <h5>OLS Linear Regression </h5>
                                 <p>
                                     Uses the LinearRegression class from <a href="http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html" target="_blank">sklearn.linear_model</a>.  
-                                    Returns the equation that minimizes the sum of the squared residuals of the difference between an observed value and the fitted value provided by a model.
+                                    Returns the equation that minimizes the sum of the squared residuals of the difference between an observed value and the fitted value provided by a model. <br>
                                     The linear regression is evaluated using 5-fold cross-validation. 
-                                    The model validation metrics returned is the mean value from the cross-validation for <b>R-square </b>(coefficient of determination) and the <b>mean squared error (mse)</b>  <br>
-                                    No feature selections nor feature extraction are performed prior to fitting the OLS Linear Regression model. If an version 0.2 is released (?) this will be implemented along with support for 
+                                    The model validation metrics returned is the mean value from the cross-validation for <b>R-square </b>(coefficient of determination) and the <b>mean squared error </b>(mse)</b>  <br>
+                                    No feature selections nor feature extraction are performed prior to fitting the OLS Linear Regression model. If a version 0.2 is released (?) this will be implemented along with support for 
                                     <a href="http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Lasso.html" target="_blank">Lasso</a> and 
                                     <a href="http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Ridge.html" target="_blank">Ridge</a> regression 
                                     <br> <br>
@@ -261,31 +273,35 @@
                                 <p>
                                     Uses the KMeans class from <a href="http://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html" target="_blank">sklearn.cluster</a>.  
                                     The Euclidean distance is used to assign the instance to its the nearest centroid (center of the cluster). 
-                                    To determine the optimum number of clusters k is the highest scoring <a href="http://scikit-learn.org/stable/modules/generated/sklearn.metrics.silhouette_score.html" target="_blank">silhouette coefficient</a> 
+                                    To determine the optimum number of clusters (k), I use the highest scoring <a href="http://scikit-learn.org/stable/modules/generated/sklearn.metrics.silhouette_score.html" target="_blank">silhouette coefficient</a> 
                                     <br> <br>
                                 </p>
                                 
                                 <h5>Used in all models</h5>
                                 <p>
                                     Supported files to upload are currently .txt, .csv and .xlsx . For .txt, .csv use a semi-colon (;) as separator and a dot (.) as decimal    <br> 
-                                    The response (target) variable used will be the column in the uploaded file which include the letters YPRED. <br> 
+                                    The response (target) variable used will be the column in the uploaded training file which include the letters YPRED. <br> 
                                     If you wish not to include a variable in the model enter the text NOTMODEL in the column name.  <br>
                                     All categorical explanatory variables will be re-coded to dummy/indicator variables. Although if the categorical variable 
                                     contains more than 20 distinct values then that variable will not be included in the model. <br>
                                     All continuous explanatory (X) variables will be standardized (z-score normalized) prior to fitting the model.<br>
-                                    All missing values for continuous explanatory (X) variables are set to zero which will correspond to the mean. Obviously missing values can be handled in many different ways.
+                                    All missing values for continuous explanatory (X) variables are set to zero which will then correspond to the mean. Obviously missing values can be handled in many different ways.
                                     <br>
-                                    Only matching columns in the uploaded files will be used when fitting the model (except for unsupervised models such as K-means clustering)  <br>
-                                    If the training file and scoring file do not have any matching columns an error will be returned while fitting the model.<br>
-                                    
+                                    Only matching columns in the training file and file to score will be used when fitting the model (except for unsupervised models such as K-means clustering where you only provide a training file)  <br>
+                                    If the training file and scoring file do not have any matching columns an error will be returned when fitting the model.<br>
+                                    The maximum limit of a file to upload is 10MB. <br>
+                                    You may modify the source code to change values of parameters, settings, handling of missing values, add algorithms, etc in the provided code found on <a href="https://github.com/DoubleEE/webdataconnector_ml" target="_blank">GitHub</a>.  <br>
+                           
                                     <br>
                                 </p>
                                 <h5>Info</h5>
                                 <p id="furtherinfo">
                                     This 0.1 version is a prototype and currently not a full fledged nor a fully supported web application.  <br>
-                                    I'm running this web service on a free plan (Thanks <a href=" https://www.pythonanywhere.com/" target="_blank">pythonanywhere.com</a> ) <br>                                 
+                                    I'm running this web service on a free plan (Thanks <a href="https://www.pythonanywhere.com/" target="_blank">pythonanywhere.com</a> ) <br>                                 
                                     I would like to emphasize that all parameters in the models can be set to values of your chose, your needs and your preferences in 
-                                    the provided code found on <a href="https://github.com/DoubleEE/webdataconnector_scikit" target="_blank">GitHub</a>.  <br>
+                                    the provided code found on <a href="https://github.com/DoubleEE/webdataconnector_ml" target="_blank">GitHub</a>. <br> <br>
+                                    
+                                    I'd like to express my gratitude and many thanks to the authors and contributors of the <a href="http://scikit-learn.org/" target="_blank"> scikit-learn</a>  project.
                                     <br><br>
                                 </p>
                                 
@@ -305,7 +321,7 @@
                      <!-- ***** Scroll Up Arrows ***** -->
                     <div class="row">
                         <div class="centered scrollup">
-                            <a href="#top">
+                            <a href="#"  onclick="scrollTo('#top');return false;">
                                 <i class="fa fa-angle-double-up fa-3x"></i>
                             </a>
                         </div>
